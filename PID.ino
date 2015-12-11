@@ -7,7 +7,7 @@ PIDServo servo;
 unsigned long updateLastTime = 0;
 
 
-//This is actually PID!!
+//This is actually master!!
 void setup()
 {
 
