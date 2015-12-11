@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <stdio.h>
 
-
+//This is master!!!!
 #define motor1Pin1 3 // pin 2 on L293D
 #define motor1Pin2 4 // pin 7 on L293D
 
