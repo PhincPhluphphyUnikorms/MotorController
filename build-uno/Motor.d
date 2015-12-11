@@ -1,4 +1,4 @@
-build-uno/PID.o: PID.ino \
+build-uno/Motor.o: Motor.cpp Motor.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/binary.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h \
@@ -8,5 +8,4 @@ build-uno/PID.o: PID.ino \
  /usr/share/arduino/hardware/arduino/cores/arduino/Print.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/Printable.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/new.h \
- /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h \
- Motor.h
+ /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h
