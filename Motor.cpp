@@ -72,6 +72,6 @@ void Motor::setSpeed(int speed) {
     if(speed > 255) speed = 255;
     else if(speed < motorlimit) speed = motorlimit;
 
-    analogWrite(_enablePin, speed);
+    digitalWrite(_enablePin, speed);
 
 }

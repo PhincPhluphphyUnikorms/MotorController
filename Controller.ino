@@ -59,17 +59,16 @@ void loop() {
 void update() {
 
     targetdegree = 90;
-    Setpoint = targetdegree;
 
     readdegree = degreeFromPotiReading();
     error = targetdegree - readdegree;
 
+    Setpoint = targetdegree;
     Input = readdegree;
-
     pid.Compute();
 
-    motor.setSpeed(Output);
-    motor.move(error, 2);
+    motor.setSpeed(255);
+    motor.move(Output, 2);
 
     Serial.print("Output: ");
     Serial.println(Output);
