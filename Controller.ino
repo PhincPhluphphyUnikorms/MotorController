@@ -44,10 +44,7 @@ void setup() {
 
     Serial.begin(9600);
     pid.SetMode(AUTOMATIC);
-
-    pid.SetOutputLimits(-90, 90);
-
-
+    pid.SetOutputLimits(150, 255);
 
 }
 
@@ -71,7 +68,8 @@ void update() {
 
     pid.Compute();
 
-    motor.move(Output, 2);
+    //motor.setSpeed(Output);
+    motor.move(error, 2);
 
     Serial.print("Output: ");
     Serial.println(Output);

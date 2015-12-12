@@ -14,11 +14,12 @@ public:
     void clockwise();
     void counterClockwise();
     void move(double degrees, int threshold);
+    void setSpeed(int speed);
 
 private:
     int _motor1Pin1;
     int _motor1Pin2;
-    int enablepin;
+    int _enablePin;
 
 };
 
