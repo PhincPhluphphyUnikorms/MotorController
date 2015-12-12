@@ -13,6 +13,7 @@ public:
     void stop();
     void clockwise();
     void counterClockwise();
+    void move(double degrees, int threshold);
 
 private:
     int _motor1Pin1;

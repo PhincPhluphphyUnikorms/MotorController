@@ -1,4 +1,4 @@
-build-uno/PID.o: PID.ino \
+build-uno/Controller.o: Controller.ino \
  /usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/binary.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h \

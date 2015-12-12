@@ -1,5 +1,8 @@
 #include <Arduino.h>
 #include "Motor.h"
+#include "PIDLibrary/PID_v1.h"
+
+
 
 
 #define degreerange 170 // The range of degrees that the servo can move
@@ -19,6 +22,12 @@ int readdegree;
 int targetdegree;
 float error;
 
+double Setpoint, Input, Output;
+
+//Specify the links and initial tuning parameters
+double Kp=2, Ki=5, Kd=1;
+PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
+
 //Makes motor with correct pins
 Motor motor(3, 4, 9);
 
@@ -26,17 +35,19 @@ Motor motor(3, 4, 9);
 unsigned long updateLastTime = 0;
 
 
-
 int degreeFromPotiReading();
 void update();
 int convertToDegree(int reading);
 
 
-//This is PID!!
 void setup() {
 
-    digitalWrite(enablePin, HIGH);
     Serial.begin(9600);
+    pid.SetMode(AUTOMATIC);
+
+    pid.SetOutputLimits(-90, 90);
+
+
 
 }
 
@@ -50,34 +61,26 @@ void loop() {
 
 void update() {
 
-    targetdegree = -70;
+    targetdegree = -90;
+    Setpoint = targetdegree;
+
     readdegree = degreeFromPotiReading();
     error = targetdegree - readdegree;
 
+    Input = readdegree;
 
-    // Serial.print("DEGREE: ");
-    // Serial.println(readdegree);
+    pid.Compute();
 
+    motor.move(Output, 2);
 
+    Serial.print("Output: ");
+    Serial.println(Output);
 
-    Serial.print("ERROR: ");
-    Serial.println(error);
+    Serial.print("TARGET: ");
+    Serial.println(targetdegree);
 
-
-    if(error <= 10 && -10 <= error) {
-
-        motor.stop();
-
-    } else if(error > 0) {
-
-        motor.counterClockwise();
-
-    } else {
-
-        motor.clockwise();
-
-
-    }
+    Serial.print("Actual: ");
+    Serial.println(readdegree);
 
 }
 
@@ -86,9 +89,6 @@ int degreeFromPotiReading() {
 
     int value = analogRead(0);
 
-
-    //Serial.print("POTIVALUE: ");
-    //Serial.println(value);
 
     value -= potimin;
 

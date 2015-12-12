@@ -15,6 +15,9 @@ Motor::Motor(int pin1, int pin2, int enablepin) {
 
     _motor1Pin1 = pin1;
     _motor1Pin2 = pin2;
+    digitalWrite(enablepin, HIGH);
+
+
 
 }
 
@@ -37,5 +40,26 @@ void Motor::counterClockwise() {
 void Motor::stop() {
     digitalWrite(_motor1Pin1, LOW);
     digitalWrite(_motor1Pin2, LOW);
+
+}
+
+void Motor::move(double degrees, int threshold) {
+
+
+    if(degrees <= threshold && -threshold <= degrees) {
+
+        stop();
+
+    } else if(degrees > 0) {
+
+        counterClockwise();
+
+    } else {
+
+        clockwise();
+
+
+    }
+
 
 }
