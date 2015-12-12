@@ -15,17 +15,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="112706e6-7bdb-441f-812b-7560459a9a8e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Motor.cpp" afterPath="$PROJECT_DIR$/Motor.cpp" />
-      <change type="MODIFICATION" beforePath="$USER_HOME$/Git/tutorweb" afterPath="$USER_HOME$/Git/tutorweb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/libcore.a" afterPath="$PROJECT_DIR$/build-uno/libcore.a" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/Motor.o" afterPath="$PROJECT_DIR$/build-uno/Motor.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/PID.hex" afterPath="$PROJECT_DIR$/build-uno/PID.hex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/PID.elf" afterPath="$PROJECT_DIR$/build-uno/PID.elf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PID.iml" afterPath="$PROJECT_DIR$/.idea/PID.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller.ino" afterPath="$PROJECT_DIR$/Controller.ino" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/libcore.a" afterPath="$PROJECT_DIR$/build-uno/libcore.a" />
+      <change type="MODIFICATION" beforePath="$USER_HOME$/Git/PvC-app" afterPath="$USER_HOME$/Git/PvC-app" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/Controller.o" afterPath="$PROJECT_DIR$/build-uno/Controller.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller.ino" afterPath="$PROJECT_DIR$/Controller.ino" />
-      <change type="MODIFICATION" beforePath="$USER_HOME$/Git/PvC-app" afterPath="$USER_HOME$/Git/PvC-app" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/PID.hex" afterPath="$PROJECT_DIR$/build-uno/PID.hex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PID.iml" afterPath="$PROJECT_DIR$/.idea/PID.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/PID.elf" afterPath="$PROJECT_DIR$/build-uno/PID.elf" />
+      <change type="MODIFICATION" beforePath="$USER_HOME$/Git/tutorweb" afterPath="$USER_HOME$/Git/tutorweb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Motor.cpp" afterPath="$PROJECT_DIR$/Motor.cpp" />
     </list>
     <ignored path="PID.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,11 +49,9 @@
       <file leaf-file-name="Controller.ino" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controller.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2970297">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="12" selection-end-column="83" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.23762377">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -319,9 +317,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -355,9 +351,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servopid.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#41#59#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -398,9 +426,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -448,9 +474,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -473,9 +497,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -557,11 +579,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2970297">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="12" selection-end-column="83" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.23762377">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
