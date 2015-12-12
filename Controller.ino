@@ -8,8 +8,8 @@
 #define degreerange 170 // The range of degrees that the servo can move
 #define potirange 1024 // The range of the readings from the poti
 
-#define potimin 118 // The minimal reading that we can get from the poti
-#define maxreading 664 // The maximal reading that we can get from the poti
+#define potimin 0 // The minimal reading that we can get from the poti
+#define maxreading 660 // The maximal reading that we can get from the poti
 #define potimax potirange - maxreading // The values that the poti will never enter
 
 
@@ -25,7 +25,7 @@ float error;
 double Setpoint, Input, Output;
 
 //Specify the links and initial tuning parameters
-double Kp=2, Ki=5, Kd=1;
+double Kp=2, Ki=5, Kd=10;
 PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 //Makes motor with correct pins
@@ -58,7 +58,7 @@ void loop() {
 
 void update() {
 
-    targetdegree = -90;
+    targetdegree = 90;
     Setpoint = targetdegree;
 
     readdegree = degreeFromPotiReading();
@@ -68,7 +68,7 @@ void update() {
 
     pid.Compute();
 
-    //motor.setSpeed(Output);
+    motor.setSpeed(Output);
     motor.move(error, 2);
 
     Serial.print("Output: ");

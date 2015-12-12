@@ -17,7 +17,7 @@ Motor::Motor(int pin1, int pin2, int enablepin) {
 
     _motor1Pin1 = pin1;
     _motor1Pin2 = pin2;
-    analogWrite(enablepin, motorlimit);
+    //analogWrite(enablepin, motorlimit);
     _enablePin = enablepin;
 
 
@@ -70,7 +70,7 @@ void Motor::move(double degrees, int threshold) {
 void Motor::setSpeed(int speed) {
 
     if(speed > 255) speed = 255;
-    else if(speed < 150) speed = 150;
+    else if(speed < motorlimit) speed = motorlimit;
 
     analogWrite(_enablePin, speed);
 
