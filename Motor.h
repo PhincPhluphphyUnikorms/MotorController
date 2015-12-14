@@ -13,7 +13,7 @@ public:
     void stop();
     void clockwise();
     void counterClockwise();
-    void move(double degrees, int threshold);
+    void move(float degrees, int threshold);
     void setSpeed(int speed);
 
 private:

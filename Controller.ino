@@ -31,7 +31,6 @@ void setup() {
     Serial.begin(9600);
 
 
-
 }
 
 
@@ -39,14 +38,12 @@ void loop() {
 
 
     Serial.println(servo.getError());
-
     updateLastTime = millis() / 1000;
 
-    servo.update();
+    servo.write(90);
 
     pid.Compute();
 
-    servo.write(0);
 
     //Setpoint = targetdegree;
     //Input = readdegree;

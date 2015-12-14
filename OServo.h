@@ -21,12 +21,12 @@ public:
     float getPosition();
     float getError();
     int getTargetDegree();
+    int readPoti();
 
 private:
     float readDegree;
     int targetdegree;
     float error;
-
 
 };
 

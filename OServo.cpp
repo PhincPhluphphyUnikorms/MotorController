@@ -12,7 +12,7 @@
 #define potirange 1024 // The range of the readings from the poti
 
 #define potimin 43 // The minimal reading that we can get from the poti
-#define maxreading 542 // The maximal reading that we can get from the poti
+#define maxreading 533 // The maximal reading that we can get from the poti
 #define potimax potirange - maxreading // The values that the poti will never enter
 
 
@@ -25,6 +25,9 @@
 float readdegree;
 int targetdegree;
 float error;
+
+
+int potiPort = 0;
 
 
 //Makes motor with correct pins
@@ -66,12 +69,18 @@ void OServo::setTargetDegree(int value) {
 
 int OServo::degreeFromPotiReading() {
 
-    int value = analogRead(0);
+    int value = readPoti();
 
     value -= potimin;
 
     return convertToDegree(value);
 
+
+}
+
+int OServo::readPoti(){
+
+    return analogRead(potiPort);
 
 }
 
@@ -100,6 +109,8 @@ int OServo::getTargetDegree() {
     return targetdegree;
 
 }
+
+
 
 
 
