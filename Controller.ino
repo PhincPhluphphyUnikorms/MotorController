@@ -1,102 +1,97 @@
 #include <Arduino.h>
 #include "Motor.h"
-#include "PIDLibrary/PID_v1.h"
+#include "OServo.h"
+#include <PID_v1.h>
+#include "easing.h"
 
+float servoPos, pos;
+float iterations = 2000; // Iterationer pr animation
 
-
-
-#define degreerange 170 // The range of degrees that the servo can move
-#define potirange 1024 // The range of the readings from the poti
-
-#define potimin 0 // The minimal reading that we can get from the poti
-#define maxreading 660 // The maximal reading that we can get from the poti
-#define potimax potirange - maxreading // The values that the poti will never enter
-
-
-#define realpotirange abs(potirange-potimax) - potimin // The range of degrees that the servo can move
-
-#define multiplier ((0.00 + degreerange) / (0.00 + realpotirange)) // The range of degrees that the servo can move
-
-
-int readdegree;
-int targetdegree;
-float error;
 
 double Setpoint, Input, Output;
 
 //Specify the links and initial tuning parameters
-double Kp=2, Ki=5, Kd=10;
+double Kp = 10, Ki = 0, Kd = 0;
 PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
-
-//Makes motor with correct pins
-Motor motor(3, 4, 9);
 
 
 unsigned long updateLastTime = 0;
 
-
-int degreeFromPotiReading();
-void update();
-int convertToDegree(int reading);
+OServo servo;
 
 
 void setup() {
 
     Serial.begin(9600);
+
+
     pid.SetMode(AUTOMATIC);
-    pid.SetOutputLimits(150, 255);
+    pid.SetOutputLimits(0, 180); // Bør justeres sammen med SetDegrees retur
+
+    Serial.begin(9600);
+
+
 
 }
 
 
 void loop() {
-    if (millis() - updateLastTime > 20) {
-        updateLastTime = millis();
-        update();
-    }
-}
 
-void update() {
 
-    targetdegree = 90;
+    Serial.println(servo.getTargetdegree());
 
-    readdegree = degreeFromPotiReading();
-    error = targetdegree - readdegree;
+    updateLastTime = millis() / 1000;
 
-    Setpoint = targetdegree;
-    Input = readdegree;
+    servo.update();
+
     pid.Compute();
 
-    motor.setSpeed(255);
-    motor.move(Output, 2);
+    servo.write(0);
 
-    Serial.print("Output: ");
-    Serial.println(Output);
-
-    Serial.print("TARGET: ");
-    Serial.println(targetdegree);
-
-    Serial.print("Actual: ");
-    Serial.println(readdegree);
-
-}
+    //Setpoint = targetdegree;
+    //Input = readdegree;
 
 
-int degreeFromPotiReading() {
-
-    int value = analogRead(0);
 
 
-    value -= potimin;
+    /* Serial.print("Output: ");
+     Serial.println(Output);
 
-    return convertToDegree(value);
+     Serial.print("TARGET: ");
+     Serial.println(targetdegree);
+
+     Serial.print("Actual: ");
+     Serial.println(readdegree);
+ */
+
+    /*
+    for (pos = 0; pos <= iterations; pos++) {
+
+        //TODO: Hvad sker der hvis vi bytter om på easein og easeOut?
+        servoPos = 10 + 160 * CubicEaseOut(pos/iterations);
+
+        setTargetDegree(servoPos);
+        update();
+
+        delay(100);
+
+    }
+
+    for (pos = iterations; pos >= 0; pos--) {
+
+        servoPos = 10 + 160 * CubicEaseIn(pos/iterations);
 
 
-}
+        setTargetDegree(servoPos);
+        update();
 
-int convertToDegree(int reading) {
+        delay(100);
 
-    return (reading * multiplier) - (degreerange / 2);
+
+    }
+     */
+
+
 
 }
 

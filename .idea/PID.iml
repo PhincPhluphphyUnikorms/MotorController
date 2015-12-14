@@ -19,6 +19,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Motor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cmake/ArduinoToolchain.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cmake/Platform/Arduino.cmake" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/easing.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/easing.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/servopid.h" isTestSource="false" />
     </content>
     <content url="file:///usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h">
@@ -51,11 +53,11 @@
     <content url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.h">
       <sourceFolder url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.h" isTestSource="false" />
     </content>
-    <content url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDTune/PID_AutoTune_v0/PID_AutoTune_v0.cpp">
-      <sourceFolder url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDTune/PID_AutoTune_v0/PID_AutoTune_v0.cpp" isTestSource="false" />
+    <content url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PID_AutoTune_v0/PID_AutoTune_v0.cpp">
+      <sourceFolder url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PID_AutoTune_v0/PID_AutoTune_v0.cpp" isTestSource="false" />
     </content>
-    <content url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDTune/PID_AutoTune_v0/PID_AutoTune_v0.h">
-      <sourceFolder url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDTune/PID_AutoTune_v0/PID_AutoTune_v0.h" isTestSource="false" />
+    <content url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PID_AutoTune_v0/PID_AutoTune_v0.h">
+      <sourceFolder url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PID_AutoTune_v0/PID_AutoTune_v0.h" isTestSource="false" />
     </content>
     <content url="file:///usr/share/arduino/hardware/arduino/cores/arduino/Platform.h">
       <sourceFolder url="file:///usr/share/arduino/hardware/arduino/cores/arduino/Platform.h" isTestSource="false" />
@@ -174,8 +176,6 @@
           <root url="file:///usr/share/arduino/libraries" />
         </SOURCES>
         <excluded>
-          <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDTune/PID_AutoTune_v0/PID_AutoTune_v0.h" />
-          <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDTune/PID_AutoTune_v0/PID_AutoTune_v0.cpp" />
           <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.cpp" />
           <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.h" />
           <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h" />
@@ -218,6 +218,8 @@
           <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/Stream.cpp" />
           <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/WInterrupts.c" />
           <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/IPAddress.cpp" />
+          <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PID_AutoTune_v0/PID_AutoTune_v0.cpp" />
+          <root url="file:///usr/share/arduino/hardware/arduino/cores/arduino/PID_AutoTune_v0/PID_AutoTune_v0.h" />
         </excluded>
       </library>
     </orderEntry>

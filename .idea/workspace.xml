@@ -15,17 +15,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="112706e6-7bdb-441f-812b-7560459a9a8e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/Motor.o" afterPath="$PROJECT_DIR$/build-uno/Motor.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller.ino" afterPath="$PROJECT_DIR$/Controller.ino" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/libcore.a" afterPath="$PROJECT_DIR$/build-uno/libcore.a" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/keymaps/Emacs_.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/keymaps/Mac Emacs_.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/OServo.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/OServo.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Pid autotune/.idea/Pid autotune.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Pid autotune/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Pid autotune/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Pid autotune/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Pid autotune/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/CDC.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/CDC.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Controller.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Controller.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/HID.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/HID.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/HardwareSerial.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/HardwareSerial.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/IPAddress.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/IPAddress.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Motor.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Motor.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/PID.elf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/PID.hex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/PID.hex.sizeok" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/PID_v1.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/PID_v1.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Print.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Print.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Stream.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Stream.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Tone.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/Tone.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/USBCore.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/USBCore.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/WInterrupts.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/WInterrupts.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/WMath.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/WMath.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/WString.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/WString.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/libcore.a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/libs/LiquidCrystal/LiquidCrystal.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/libs/LiquidCrystal/LiquidCrystal.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/main.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/new.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/new.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_analog.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_analog.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_digital.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_digital.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_pulse.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_pulse.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_shift.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-mega2560/wiring_shift.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-uno/PID.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-uno/PID.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-uno/libs/PIDLibrary/PID_v1.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build-uno/libs/PIDLibrary/PID_v1.o" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/PID.elf" afterPath="$PROJECT_DIR$/build-uno/PID.elf" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/Git/PvC-app" afterPath="$USER_HOME$/Git/PvC-app" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/libcore.a" afterPath="$PROJECT_DIR$/build-uno/libcore.a" />
+      <change type="MODIFICATION" beforePath="$USER_HOME$/Git/tutorweb" afterPath="$USER_HOME$/Git/tutorweb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/Controller.d" afterPath="$PROJECT_DIR$/build-uno/Controller.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller.ino" afterPath="$PROJECT_DIR$/Controller.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/Controller.o" afterPath="$PROJECT_DIR$/build-uno/Controller.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/libs/LiquidCrystal/LiquidCrystal.o" afterPath="$PROJECT_DIR$/build-uno/libs/LiquidCrystal/LiquidCrystal.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/Motor.o" afterPath="$PROJECT_DIR$/build-uno/Motor.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/PID.hex" afterPath="$PROJECT_DIR$/build-uno/PID.hex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PID.iml" afterPath="$PROJECT_DIR$/.idea/PID.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-uno/PID.elf" afterPath="$PROJECT_DIR$/build-uno/PID.elf" />
-      <change type="MODIFICATION" beforePath="$USER_HOME$/Git/tutorweb" afterPath="$USER_HOME$/Git/tutorweb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Motor.cpp" afterPath="$PROJECT_DIR$/Motor.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.txt" afterPath="$PROJECT_DIR$/test.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PID.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +114,62 @@
       <file leaf-file-name="Controller.ino" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controller.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23762377">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.53571427">
+              <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OServo.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OServo.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.068966">
+              <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+              <folding>
+                <element signature="e#41#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OServo.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OServo.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="7" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Motor.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Motor.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Motor.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Motor.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+              <folding>
+                <element signature="e#41#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EasingDemo.ino" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../EasingDemo/EasingDemo.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="26" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,28 +180,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Motor.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Motor.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding>
-                <element signature="e#41#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Motor.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Motor.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -108,8 +205,10 @@
         <option value="$PROJECT_DIR$/motor.cpp" />
         <option value="$PROJECT_DIR$/servopid.h" />
         <option value="$PROJECT_DIR$/PID.ino" />
-        <option value="$PROJECT_DIR$/Motor.h" />
         <option value="$PROJECT_DIR$/Motor.cpp" />
+        <option value="$PROJECT_DIR$/Motor.h" />
+        <option value="$PROJECT_DIR$/OServo.h" />
+        <option value="$PROJECT_DIR$/OServo.cpp" />
         <option value="$PROJECT_DIR$/Controller.ino" />
       </list>
     </option>
@@ -123,8 +222,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="27" />
-    <option name="width" value="1366" />
-    <option name="height" value="741" />
+    <option name="width" value="1221" />
+    <option name="height" value="662" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -212,7 +311,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EasingDemo/EasingDemo.ino" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
@@ -274,11 +373,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="741" extended-state="7" />
+    <frame x="0" y="27" width="1221" height="662" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24916667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937685" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -286,7 +386,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -296,6 +395,26 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937685" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329653" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -309,10 +428,96 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/easing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../EasingDemo/EasingDemo.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easing.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servopid.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/servopid.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Controller.ino">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -389,10 +594,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.h">
+    <entry file="file://$PROJECT_DIR$/servopid.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -427,13 +659,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -523,31 +748,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build-uno/PID.d">
+    <entry file="file://$PROJECT_DIR$/easing.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37370244">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build-uno/PID.o">
+    <entry file="file://$PROJECT_DIR$/../EasingDemo/EasingDemo.ino">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.cpp">
+    <entry file="file://$PROJECT_DIR$/easing.c">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="66" selection-start-line="0" selection-start-column="66" selection-end-line="0" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Motor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -560,27 +780,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/share/arduino/hardware/arduino/cores/arduino/PIDLibrary/PID_v1.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5049505">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Motor.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding>
             <element signature="e#41#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Motor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OServo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OServo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.068966">
+          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+          <folding>
+            <element signature="e#41#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Controller.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23762377">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.53571427">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
           <folding />
         </state>
       </provider>
