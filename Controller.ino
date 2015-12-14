@@ -38,7 +38,7 @@ void setup() {
 void loop() {
 
 
-    Serial.println(servo.getTargetdegree());
+    Serial.println(servo.getError());
 
     updateLastTime = millis() / 1000;
 

@@ -39,9 +39,9 @@ OServo::OServo() {
 
 void OServo::update() {
 
-    readdegree = degreeFromPotiReading();
+    readDegree = degreeFromPotiReading();
 
-    error = targetdegree - readdegree;
+    error = targetdegree - readDegree;
 
 }
 
@@ -53,7 +53,7 @@ void OServo::write(float degree) {
     update();
 
 
-    motor.move(degree, 2);
+    motor.move(error, 2);
 
 
 }
@@ -90,15 +90,16 @@ float OServo::getError() {
 
 float OServo::getPosition() {
 
-    return readdegree;
+    return readDegree;
 
 }
 
-int OServo::getTargetdegree() {
+int OServo::getTargetDegree() {
 
 
     return targetdegree;
 
 }
+
 
 

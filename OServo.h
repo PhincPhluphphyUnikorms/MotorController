@@ -20,10 +20,10 @@ public:
     void write(float degree);
     float getPosition();
     float getError();
-    int getTargetdegree();
+    int getTargetDegree();
 
 private:
-    float readdegree;
+    float readDegree;
     int targetdegree;
     float error;
 
