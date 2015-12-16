@@ -47,7 +47,7 @@ void Motor::stop() {
 }
 
 //Degree the relative degrees that we want to move aka the error value in the servo
-void Motor::move(float degrees, int threshold) {
+void Motor::move(float degrees, float threshold) {
 
 
     if(degrees <= threshold && -threshold <= degrees) {

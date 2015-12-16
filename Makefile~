@@ -5,7 +5,7 @@
 BOARD_TAG = uno
 
 #Space separated set of libraries that are used by your sketch
-ARDUINO_LIBS = LiquidCrystal PIDLibrary
+ARDUINO_LIBS = LiquidCrystal PID_v1
 
 #Use dmesg if unsure about this
 ARDUINO_PORT = /dev/ttyACM3

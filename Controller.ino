@@ -5,13 +5,13 @@
 #include "easing.h"
 
 float servoPos, pos;
-float iterations = 2000; // Iterationer pr animation
+float iterations = 200; // Iterationer pr animation
 
 
 double Setpoint, Input, Output;
 
 //Specify the links and initial tuning parameters
-double Kp = 10, Ki = 0, Kd = 0;
+double Kp = 0.49, Ki = 0.01, Kd = 0;
 PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 
@@ -37,57 +37,48 @@ void setup() {
 void loop() {
 
 
-    Serial.println(servo.getError());
     updateLastTime = millis() / 1000;
 
-    servo.write(90);
-
-    pid.Compute();
+   // pid.Compute();
 
 
-    //Setpoint = targetdegree;
-    //Input = readdegree;
+    //servo.write(Output);
 
 
+    servo.write(0);
 
+    delay(4000);
 
-    /* Serial.print("Output: ");
-     Serial.println(Output);
-
-     Serial.print("TARGET: ");
-     Serial.println(targetdegree);
-
-     Serial.print("Actual: ");
-     Serial.println(readdegree);
- */
-
-    /*
     for (pos = 0; pos <= iterations; pos++) {
 
-        //TODO: Hvad sker der hvis vi bytter om på easein og easeOut?
-        servoPos = 10 + 160 * CubicEaseOut(pos/iterations);
 
-        setTargetDegree(servoPos);
-        update();
+        Serial.print("ERROR: ");
+        Serial.println(servo.getError());
 
-        delay(100);
+        servoPos = 10 + 160 * QuadraticEaseIn(pos/iterations);
 
+        Serial.print("POS: ");
+        Serial.println(servoPos);
+
+        servo.write(servoPos);
+
+        delay(2000);
     }
 
-    for (pos = iterations; pos >= 0; pos--) {
-
-        servoPos = 10 + 160 * CubicEaseIn(pos/iterations);
 
 
-        setTargetDegree(servoPos);
-        update();
 
-        delay(100);
+    /*for (pos = iterations; pos >= 0; pos--) {
 
+        Serial.println(servo.getError());
 
-    }
-     */
+        servoPos = 10 + 160 * QuadraticEaseOut(pos/iterations);
 
+        servo.write(servoPos);
+
+        delay(2000);
+
+    }*/
 
 
 }

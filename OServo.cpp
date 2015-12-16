@@ -56,7 +56,7 @@ void OServo::write(float degree) {
     update();
 
 
-    motor.move(error, 2);
+    motor.move(error, 0.5);
 
 
 }
