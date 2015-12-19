@@ -49,8 +49,7 @@ void loop() {
 
     for (pos = 0; pos <= iterations; pos++) {
 
-
-        servoPos = (180-10) * SineEaseOut(pos / iterations);
+        servoPos = (180 - 10) * CircularEaseOut(pos / iterations);
 
         servo.write(servoPos);
 
@@ -63,7 +62,7 @@ void loop() {
 
     for (pos = iterations; pos >= 0; pos--) {
 
-        servoPos = (180 - 10 ) * SineEaseIn(pos / iterations);
+        servoPos = (180 - 10 ) * CircularEaseIn(pos / iterations);
 
         servo.write(servoPos);
 
