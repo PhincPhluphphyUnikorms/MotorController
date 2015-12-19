@@ -55,7 +55,11 @@ void loop() {
 
         servoPos = (180 - 10) * BounceEaseOut(pos / iterations);
 
-        servo.write(servoPos);
+        Input = servoPos;
+
+        pid.Compute();
+
+        servo.write(Output);
 
         wait();
 
