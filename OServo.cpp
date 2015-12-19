@@ -11,8 +11,8 @@
 #define degreerange 170 // The range of degrees that the servo can move
 #define potirange 1024 // The range of the readings from the poti
 
-#define potimin 43 // The minimal reading that we can get from the poti
-#define maxreading 533 // The maximal reading that we can get from the poti
+#define potimin 15 // The minimal reading that we can get from the poti
+#define maxreading 1023 // The maximal reading that we can get from the poti
 #define potimax potirange - maxreading // The values that the poti will never enter
 
 
@@ -20,6 +20,9 @@
 
 #define multiplier ((0.00 + degreerange) / (0.00 + realpotirange)) // The range of degrees that the servo can move
 
+
+#define clippingvalue 10
+#define targetsize 1
 
 
 float readdegree;
@@ -32,6 +35,8 @@ int potiPort = 0;
 
 //Makes motor with correct pins
 Motor motor(3, 4, 9);
+
+bool clipping = false;
 
 OServo::OServo() {
 
@@ -50,14 +55,28 @@ void OServo::update() {
 
 void OServo::write(float degree) {
 
+    degree = clipDegree(degree); // Clips the degree
+
 
     targetdegree = degree;
 
     update();
 
 
-    motor.move(error, 0.5);
+    motor.move(error, targetsize);
 
+
+}
+
+float OServo::clipDegree(float degree) {
+
+    if(!clipping) return degree; // If clipping are off do nothing
+
+    if(degree < clippingvalue) degree = clippingvalue;
+
+    if(degree >= degreerange - clippingvalue) degree = degreerange - clippingvalue;
+
+    return degree;
 
 }
 

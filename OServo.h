@@ -28,6 +28,7 @@ private:
     int targetdegree;
     float error;
 
+    float clipDegree(float degree);
 };
 
 

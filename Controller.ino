@@ -5,7 +5,7 @@
 #include "easing.h"
 
 float servoPos, pos;
-float iterations = 200; // Iterationer pr animation
+float iterations = 1000; // Iterationer pr animation
 
 
 double Setpoint, Input, Output;
@@ -19,16 +19,15 @@ unsigned long updateLastTime = 0;
 
 OServo servo;
 
+void wait();
+
 
 void setup() {
-
-    Serial.begin(9600);
 
 
     pid.SetMode(AUTOMATIC);
     pid.SetOutputLimits(0, 180); // Bør justeres sammen med SetDegrees retur
 
-    Serial.begin(9600);
 
 
 }
@@ -37,49 +36,54 @@ void setup() {
 void loop() {
 
 
-    updateLastTime = millis() / 1000;
+    //updateLastTime = millis() / 1000;
 
-   // pid.Compute();
+    // pid.Compute();
 
 
     //servo.write(Output);
 
-
     servo.write(0);
 
-    delay(4000);
+    wait();
 
     for (pos = 0; pos <= iterations; pos++) {
 
 
-        Serial.print("ERROR: ");
-        Serial.println(servo.getError());
-
-        servoPos = 10 + 160 * QuadraticEaseIn(pos/iterations);
-
-        Serial.print("POS: ");
-        Serial.println(servoPos);
+        servoPos = (180-10) * SineEaseOut(pos / iterations);
 
         servo.write(servoPos);
 
-        delay(2000);
+        wait();
+
+    }
+
+    wait();
+
+
+    for (pos = iterations; pos >= 0; pos--) {
+
+        servoPos = (180 - 10 ) * SineEaseIn(pos / iterations);
+
+        servo.write(servoPos);
+
+        wait();
+
     }
 
 
+}
 
 
-    /*for (pos = iterations; pos >= 0; pos--) {
+void wait() {
 
-        Serial.println(servo.getError());
 
-        servoPos = 10 + 160 * QuadraticEaseOut(pos/iterations);
+    while (abs(servo.getError()) > 1) {
 
         servo.write(servoPos);
 
-        delay(2000);
-
-    }*/
-
+    }
 
 }
+
 
