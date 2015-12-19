@@ -36,7 +36,7 @@ int potiPort = 0;
 //Makes motor with correct pins
 Motor motor(3, 4, 9);
 
-bool clipping = false;
+bool clipping = true;
 
 OServo::OServo() {
 

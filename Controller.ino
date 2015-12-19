@@ -32,6 +32,10 @@ void setup() {
 
 }
 
+//TODO: Ende oscilation med QuinticEase og ExponentialEase, BackEaseIn
+//TODO: Optimer for ElasticEaseOut
+
+
 
 void loop() {
 
@@ -49,7 +53,7 @@ void loop() {
 
     for (pos = 0; pos <= iterations; pos++) {
 
-        servoPos = (180 - 10) * CircularEaseOut(pos / iterations);
+        servoPos = (180 - 10) * BounceEaseOut(pos / iterations);
 
         servo.write(servoPos);
 
@@ -62,7 +66,7 @@ void loop() {
 
     for (pos = iterations; pos >= 0; pos--) {
 
-        servoPos = (180 - 10 ) * CircularEaseIn(pos / iterations);
+        servoPos = (180 - 10) * BounceEaseIn(pos / iterations);
 
         servo.write(servoPos);
 
