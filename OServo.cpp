@@ -21,10 +21,10 @@ int targetsize = 5; // the initial value of targetsize
 
 
 
-OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) :
+OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin, AnimationType animationtype) :
         _motorController(potiport, motorPin1, motorPin2, motorPVMpin, &_degreerange, &_threshold, &_actualPosition) {
 
-
+    _animationType = animationtype;
     _threshold = 5;
     _degreerange = 180;
     _firstrun = true;
@@ -42,8 +42,8 @@ OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) :
 }
 
 
-
 void OServo::write(float degree) {
+
 
     _motorController.update(); // Makes the motor controller update the values incl the poti reading
     alwaysEaseOutOnFirstRun(degree);
@@ -53,30 +53,23 @@ void OServo::write(float degree) {
 
     _superError = degree - _actualPosition;
 
-
-    Serial.print("ACtual POS: ");
-    Serial.println(_actualPosition);
+    //TODO: Find out how we can know that it is last and calculate out there
 
 
     if (sameSign(_oldSuperError, _superError)) {
 
-
-
-        Serial.print("IN: ");
-        Serial.println(_superError);
-
-        animateIn(_superError);
-
+        _easeDirection = EASEIN;
 
     } else {
 
-        Serial.print("OUT: ");
-        Serial.println(_superError);
-
-        animateOut(_superError);
+        _easeDirection = EASEINOUT;
 
 
     }
+
+    animate(_superError);
+
+
 
 
 }
@@ -86,15 +79,14 @@ bool OServo::sameSign(int x, int y) {
 }
 
 
-void OServo::animateIn(float degree) {
-
+void OServo::animate(float degree) {
 
     float startpos = _actualPosition;
 
     for (int pos = 0; pos <= _iterations; pos++) {
 
 
-        float subtarget = startpos + (degree * ExponentialEaseIn(pos / _iterations));
+        float subtarget = startpos + (degree * calculateAnimation(pos / _iterations));
 
         _motorController.sendSubTarget(subtarget);
 
@@ -138,3 +130,118 @@ void OServo::alwaysEaseOutOnFirstRun(int degree) {
 
 
 }
+
+
+/******** ANIMATION SWITCHES *********/
+
+AHFloat OServo::calculateAnimation(float input) {
+
+    switch (_easeDirection) {
+
+        case EASEIN:
+            return calculateIn(input);
+        case EASEOUT:
+            return  calculateOut(input);
+        case EASEINOUT:
+            return calculateInOut(input);
+    }
+
+}
+
+
+
+AHFloat OServo::calculateOut(float input) {
+
+    switch (_animationType) {
+        case  QUADRATIC:
+            return QuadraticEaseOut(input);
+        case  CUBIC:
+            return CubicEaseOut(input);
+        case  QUARTIC:
+            return QuarticEaseOut(input);
+        case  QUINTIC:
+            return QuarticEaseOut(input);
+        case  SINE:
+            return SineEaseOut(input);
+        case  CIRCULAR:
+            return CircularEaseOut(input);
+        case  EXPONENTIAL:
+            return ExponentialEaseOut(input);
+        case  ELASTIC:
+            return ElasticEaseOut(input);
+        case  BACK:
+            return BackEaseOut(input);
+        case  BOUNCE:
+            return BounceEaseOut(input);
+        default:
+            return LinearInterpolation(input);
+
+    }
+
+
+}
+
+AHFloat OServo::calculateInOut(float input) {
+
+    switch (_animationType) {
+        case  QUADRATIC:
+            return QuadraticEaseInOut(input);
+        case  CUBIC:
+            return CubicEaseInOut(input);
+        case  QUARTIC:
+            return QuarticEaseInOut(input);
+        case  QUINTIC:
+            return QuarticEaseInOut(input);
+        case  SINE:
+            return SineEaseInOut(input);
+        case  CIRCULAR:
+            return CircularEaseInOut(input);
+        case  EXPONENTIAL:
+            return ExponentialEaseInOut(input);
+        case  ELASTIC:
+            return ElasticEaseInOut(input);
+        case  BACK:
+            return BackEaseInOut(input);
+        case  BOUNCE:
+            return BounceEaseInOut(input);
+        default:
+            return LinearInterpolation(input);
+
+    }
+
+}
+
+
+
+AHFloat OServo::calculateIn(float input) {
+
+    switch (_animationType) {
+        case  QUADRATIC:
+            return QuadraticEaseIn(input);
+        case  CUBIC:
+            return CubicEaseIn(input);
+        case  QUARTIC:
+            return QuarticEaseIn(input);
+        case  QUINTIC:
+            return QuarticEaseIn(input);
+        case  SINE:
+            return SineEaseIn(input);
+        case  CIRCULAR:
+            return CircularEaseIn(input);
+        case  EXPONENTIAL:
+            return ExponentialEaseIn(input);
+        case  ELASTIC:
+            return ElasticEaseIn(input);
+        case  BACK:
+            return BackEaseIn(input);
+        case  BOUNCE:
+            return BounceEaseIn(input);
+        default:
+            return LinearInterpolation(input);
+
+    }
+
+
+}
+
+

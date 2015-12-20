@@ -16,28 +16,25 @@ int motorPin1 = 3;
 int motorPin2 = 4;
 int motorPVMpin = 9;
 
-OServo servo(potiport, motorPin1, motorPin2, motorPVMpin);
+OServo servo(potiport, motorPin1, motorPin2, motorPVMpin, OServo::EXPONENTIAL);
 
 void setup() {
 
 
-    Serial.begin(9600);
+   //Serial.begin(9600);
 
 }
 
 
 void loop() {
 
-    servo.write(0);
+    servo.write(30);
 
-    delay(2000);
-
-    servo.write(70);
-
-    delay(2000);
 
     servo.write(180);
 
+
+    servo.write(90);
 
 
 
