@@ -8,7 +8,7 @@ BOARD_TAG = uno
 ARDUINO_LIBS = LiquidCrystal PID_v1
 
 #Use dmesg if unsure about this
-ARDUINO_PORT = /dev/ttyACM3
+ARDUINO_PORT = /dev/ttyACM0
 
 USER_LIB_PATH = /home/daniel/sketchbook/libraries
 

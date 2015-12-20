@@ -8,9 +8,6 @@
 #include "easing.h"
 
 
-MotorController _motorController();
-
-
 //Specify the links and initial tuning parameters for the PID
 double Setpoint, Input, Output;
 double Kp = 0.49, Ki = 0.01, Kd = 0;
@@ -24,13 +21,14 @@ int targetsize = 5; // the initial value of targetsize
 
 
 
-OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _motorController(potiport, motorPin1,
-                                                                                               motorPin2, motorPVMpin,
-                                                                                               &_degreerange,
-                                                                                               &_threshold, & _actualPosition;) {
+OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) :
+        _motorController(potiport, motorPin1, motorPin2, motorPVMpin, &_degreerange, &_threshold, &_actualPosition) {
+
 
     _threshold = 5;
     _degreerange = 180;
+    _firstrun = true;
+
 
     //PID
     pid.SetMode(AUTOMATIC);
@@ -44,48 +42,99 @@ OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _m
 }
 
 
+
 void OServo::write(float degree) {
 
-    //int error =
+    _motorController.update(); // Makes the motor controller update the values incl the poti reading
+    alwaysEaseOutOnFirstRun(degree);
 
-    _motorController.sendSubTarget(degree);
+
+    _oldSuperError = _superError;
+
+    _superError = degree - _actualPosition;
 
 
+    Serial.print("ACtual POS: ");
+    Serial.println(_actualPosition);
+
+
+    if (sameSign(_oldSuperError, _superError)) {
+
+
+
+        Serial.print("IN: ");
+        Serial.println(_superError);
+
+        animateIn(_superError);
+
+
+    } else {
+
+        Serial.print("OUT: ");
+        Serial.println(_superError);
+
+        animateOut(_superError);
+
+
+    }
+
+
+}
+
+bool OServo::sameSign(int x, int y) {
+    return (x >= 0) ^ (y < 0);
 }
 
 
 void OServo::animateIn(float degree) {
 
-/*
-    for (_pos = _iterations; _pos >= 0; _pos--) {
 
-        _servoPos = (180 - 10) * ExponentialEaseIn(_pos / _iterations);
+    float startpos = _actualPosition;
 
-        _motorController.sendSubTarget(_servoPos);
+    for (int pos = 0; pos <= _iterations; pos++) {
+
+
+        float subtarget = startpos + (degree * ExponentialEaseIn(pos / _iterations));
+
+        _motorController.sendSubTarget(subtarget);
+
 
     }
-    */
-
 
 }
+
 
 void OServo::animateOut(float degree) {
 
-    /*
-    for (_pos = 0; _pos <= _iterations; _pos++) {
 
-        _servoPos = (180 - 10) * ExponentialEaseOut(_pos / _iterations);
+    float startpos = _actualPosition;
 
-        Input = _servoPos;
 
-        pid.Compute();
+    for (int pos = 0; pos <= _iterations; pos++) {
 
-        _motorController.sendSubTarget(Output);
+        float subtarget = startpos + (degree * ExponentialEaseOut(pos / _iterations));
+
+        //Input = _servoPos;
+
+        //pid.Compute();
+
+        _motorController.sendSubTarget(subtarget);
 
     }
-
-     */
 
 
 }
 
+
+void OServo::alwaysEaseOutOnFirstRun(int degree) {
+
+
+    if (_firstrun) { // Ensures that we always get the same sign in the first rum --> We always ease out
+
+        _superError = degree - _actualPosition;
+
+        _firstrun = !_firstrun;
+    }
+
+
+}

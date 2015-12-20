@@ -20,27 +20,33 @@ MotorController::MotorController(int potiport, int motorpin1, int motorpin2, int
 
 
     _currentPosition = currentposition;
+
     _degreerange = degreerange; // The range of degrees that the servo can move
     _targetsize = initialtargetsize;
     _potiPort = potiport;
-    _clipping = false;
-    _clippingvalue = 10;
+    _clipping = true;
+    _clippingvalue = 2;
 
 
 
 }
 
-
+/**
+ * Initialise values so other classes have them
+ */
 void MotorController::calibrate(){
 
     _multiplier = ((0.00 + *_degreerange) / (0.00 + realpotirange)); // The range of degrees that the servo can move
 
-    _motor.setSpeed(0); //makes motor choose minimal speec
+    _motor.setSpeed(255); //makes motor choose minimal speec
 
 
 
 }
 
+/**
+ * Takes the absolute target and send it to the motor
+ */
 void MotorController::sendSubTarget(float degree) {
 
     if (degree > *_degreerange) degree = *_degreerange; //ensures that we cannot get out of range no matter of clipping
@@ -56,14 +62,21 @@ void MotorController::sendSubTarget(float degree) {
 }
 
 
+/**
+ * Update reading from poti and recalculate error
+ */
 void MotorController::update() {
 
-    _currentPosition = degreeFromPotiReading();
+    *_currentPosition = degreeFromPotiReading();
 
-    _error = _subTargetDegree - _currentPosition;
+    _error = _subTargetDegree - *_currentPosition;
 
 }
 
+
+/**
+ * Pass the next target to the motor and wait until we reach it before returning control
+ */
 void MotorController::moveToNextSubTarget() {
 
     _ready = false; // We are in the process of a move and is not ready to recieve further instructions
@@ -84,7 +97,9 @@ void MotorController::moveToNextSubTarget() {
 
 }
 
-
+/**
+ * CLippes the top and bottum of a curve.
+ */
 float MotorController::clipDegree(float degree) {
 
     if (degree < _clippingvalue) degree = _clippingvalue;
@@ -95,12 +110,19 @@ float MotorController::clipDegree(float degree) {
 
 }
 
+/**
+ * Sets next target
+ */
 void MotorController::setTargetDegree(int value) {
 
     _subTargetDegree = value;
 
 }
 
+
+/**
+ * Calculates the current prosition in degrees based on reading from poti
+ */
 int MotorController::degreeFromPotiReading() {
 
     int value = readPoti();
@@ -112,12 +134,18 @@ int MotorController::degreeFromPotiReading() {
 
 }
 
+/**
+ * Reads the poti
+ */
 int MotorController::readPoti() {
 
     return analogRead(_potiPort);
 
 }
 
+/**
+ * Converts analogreading to degree
+ */
 double MotorController::convertToDegree(int reading) {
 
     //return (reading * _multiplier) - (_degreerange / 2);
