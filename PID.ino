@@ -16,7 +16,7 @@ int motorPin1 = 3;
 int motorPin2 = 4;
 int motorPVMpin = 9;
 
-OServo servo(potiport, motorPin1, motorPin2, motorPVMpin, OServo::EXPONENTIAL);
+OServo servo(potiport, motorPin1, motorPin2, motorPVMpin, OServo::ELASTIC);
 
 void setup() {
 

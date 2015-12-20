@@ -40,22 +40,6 @@ public:
 
     };
 
-    const AnimationType &get_animationType() const {
-        return _animationType;
-    }
-
-    const EaseDirection &get_easeDirection() const {
-        return _easeDirection;
-    }
-
-    void set_easeDirection(const EaseDirection &_easeDirection) {
-        OServo::_easeDirection = _easeDirection;
-    }
-
-    void set_animationType(const AnimationType &_animationType) {
-        OServo::_animationType = _animationType;
-    }
-
     enum EaseDirection {
 
         EASEIN, EASEOUT, EASEINOUT
@@ -68,14 +52,15 @@ public:
     EaseDirection _easeDirection;
 
 
-
     String getColorName(OServo::AnimationType type) {
-        String  typeName[] = {"Linear", "Quadratic", "Cubic", "Quartic", "Quintic,", "Sine", "Circular", "Exponential", "Elastic,", "Back", "Bounce"};
+        String typeName[] = {"Linear", "Quadratic", "Cubic", "Quartic", "Quintic,", "Sine", "Circular", "Exponential",
+                             "Elastic,", "Back", "Bounce"};
         return typeName[type];
     }
 
 public:
     OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin, AnimationType animationtype);
+
     void write(float degree);
 
 
@@ -94,13 +79,13 @@ private:
 
     void animateOut(float error);
 
-    float calculateOut(float input);
-
     float calculateAnimation(float input);
 
     float calculateInOut(float input);
 
     float calculateIn(float input);
+
+    float calculateOut(float input);
 
     void animate(float degree);
 };
