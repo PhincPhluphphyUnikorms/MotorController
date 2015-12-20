@@ -11,25 +11,23 @@
 class MotorController {
 
 
-    float _readDegree;
+    float _currentPosition;
     float _subTargetDegree;
     float _error;
     int _potiPort;
     bool _clipping;
-    float *_targetsize;
+    float * _targetsize;
     float _clippingvalue;
     bool _ready;
 
     float _multiplier;
-    int *_degreerange;
+    int * _degreerange;
 
 
     Motor _motor;
 
 public:
 
-    MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, int *degreerange,
-                    float *initialtargetsize);
 
     int degreeFromPotiReading();
 

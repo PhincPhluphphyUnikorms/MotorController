@@ -16,9 +16,10 @@
 #define realpotirange abs(potirange-potimax) - potimin // The range of degrees that the servo can move
 
 MotorController::MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, int * degreerange,
-                                 float *initialtargetsize) : _motor(motorpin1, motorpin2, motorpvmpin) {
+                                 float * initialtargetsize, float * currentposition) : _motor(motorpin1, motorpin2, motorpvmpin) {
 
 
+    _currentPosition = currentposition;
     _degreerange = degreerange; // The range of degrees that the servo can move
     _targetsize = initialtargetsize;
     _potiPort = potiport;
@@ -57,9 +58,9 @@ void MotorController::sendSubTarget(float degree) {
 
 void MotorController::update() {
 
-    _readDegree = degreeFromPotiReading();
+    _currentPosition = degreeFromPotiReading();
 
-    _error = _subTargetDegree - _readDegree;
+    _error = _subTargetDegree - _currentPosition;
 
 }
 

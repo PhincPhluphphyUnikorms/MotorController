@@ -14,11 +14,12 @@ class OServo {
     float _threshold;
 
     //Animations
-    float _servoPos, _pos;
+    float _pos;
     float _iterations;
 
     int _degreerange;
 
+    float _actualPosition;
 
 
 

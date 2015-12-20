@@ -27,7 +27,7 @@ int targetsize = 5; // the initial value of targetsize
 OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _motorController(potiport, motorPin1,
                                                                                                motorPin2, motorPVMpin,
                                                                                                &_degreerange,
-                                                                                               &_threshold) {
+                                                                                               &_threshold, & _actualPosition;) {
 
     _threshold = 5;
     _degreerange = 180;
@@ -46,10 +46,7 @@ OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _m
 
 void OServo::write(float degree) {
 
-    boolean pidOn = true;
-
-    _servoPos = degree;
-
+    //int error =
 
     _motorController.sendSubTarget(degree);
 
@@ -59,7 +56,7 @@ void OServo::write(float degree) {
 
 void OServo::animateIn(float degree) {
 
-
+/*
     for (_pos = _iterations; _pos >= 0; _pos--) {
 
         _servoPos = (180 - 10) * ExponentialEaseIn(_pos / _iterations);
@@ -67,12 +64,14 @@ void OServo::animateIn(float degree) {
         _motorController.sendSubTarget(_servoPos);
 
     }
+    */
 
 
 }
 
 void OServo::animateOut(float degree) {
 
+    /*
     for (_pos = 0; _pos <= _iterations; _pos++) {
 
         _servoPos = (180 - 10) * ExponentialEaseOut(_pos / _iterations);
@@ -84,6 +83,8 @@ void OServo::animateOut(float degree) {
         _motorController.sendSubTarget(Output);
 
     }
+
+     */
 
 
 }
