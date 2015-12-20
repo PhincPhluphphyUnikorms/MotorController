@@ -17,17 +17,19 @@ class OServo {
     float _servoPos, _pos;
     float _iterations;
 
+    int _degreerange;
+
+
+
+
     MotorController _motorController;
-
-
-
-
 public:
     OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin);
-    void write(float degree);
 
+    void write(float degree);
 private:
     void animateOut(float degree);
+
     void animateIn(float degree);
 };
 

@@ -20,13 +20,16 @@ class MotorController {
     float _clippingvalue;
     bool _ready;
 
+    float _multiplier;
+    int* _degreerange;
+
 
     Motor _motor;
 
-
 public:
 
-    MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, float *initialtargetsize);
+    MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, int *degreerange,
+                    float *initialtargetsize);
 
     int degreeFromPotiReading();
 
@@ -38,15 +41,15 @@ public:
 
     void sendSubTarget(float degree);
 
+
     int readPoti();
 
 
 private:
-
-
     float clipDegree(float degree);
-    void moveToNextSubTarget();
 
+
+    void moveToNextSubTarget();
 
 public:
 
@@ -73,8 +76,8 @@ public:
     void setclippingvalue(float _clippingvalue) {
         MotorController::_clippingvalue = _clippingvalue;
     }
-
 };
+
 
 
 #endif //PID_MotorController_H

@@ -5,30 +5,28 @@
 #include "MotorController.h"
 #include "Arduino.h"
 
-//TODO: Rewrite so constants is takjen by constructor
+//TODO: Rewrite so constants is taken by constructor maybe the rest (poti related stuff) iss ok to keep here
 
-#define degreerange 180 // The range of degrees that the servo can move
 #define potirange 1024 // The range of the readings from the poti
 
 #define potimin 15 // The minimal reading that we can get from the poti
 #define maxreading 1023 // The maximal reading that we can get from the poti
 #define potimax potirange - maxreading // The values that the poti will never enter
 
-
 #define realpotirange abs(potirange-potimax) - potimin // The range of degrees that the servo can move
 
-#define multiplier ((0.00 + degreerange) / (0.00 + realpotirange)) // The range of degrees that the servo can move
+MotorController::MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, int *degreerange,
+                                 float *initialtargetsize) : _motor(motorpin1, motorpin2, motorpvmpin) {
 
-
-
-
-MotorController::MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, float* initialtargetsize) : _motor(
-        motorpin1, motorpin2, motorpvmpin) {
 
     _targetsize = initialtargetsize;
     _potiPort = potiport;
     _clipping = false;
     _clippingvalue = 10;
+
+    _degreerange = degreerange; // The range of degrees that the servo can move
+    _multiplier = ((0.00 + *_degreerange) / (0.00 + realpotirange)); // The range of degrees that the servo can move
+
 
     _motor.setSpeed(0); //makes motor choose minimal speec
 
@@ -37,7 +35,7 @@ MotorController::MotorController(int potiport, int motorpin1, int motorpin2, int
 
 void MotorController::sendSubTarget(float degree) {
 
-    if(degree > degreerange) degree = degreerange; //ensures that we cannot get out of range no matter of clipping
+    if (degree > *_degreerange) degree = *_degreerange; //ensures that we cannot get out of range no matter of clipping
 
     if (_clipping) {
         degree = clipDegree(degree); // Clips the degree
@@ -74,20 +72,16 @@ void MotorController::moveToNextSubTarget() {
 
     }
 
-    _ready = true;
+    _ready = true; // move done we are ready again
 
 }
-
-
-
-
 
 
 float MotorController::clipDegree(float degree) {
 
     if (degree < _clippingvalue) degree = _clippingvalue;
 
-    if (degree >= degreerange - _clippingvalue) degree = degreerange - _clippingvalue;
+    if (degree >= *_degreerange - _clippingvalue) degree = *_degreerange - _clippingvalue;
 
     return degree;
 
@@ -118,9 +112,9 @@ int MotorController::readPoti() {
 
 double MotorController::convertToDegree(int reading) {
 
-    //return (reading * multiplier) - (degreerange / 2);
+    //return (reading * _multiplier) - (_degreerange / 2);
 
-    return (reading * multiplier);
+    return (reading * _multiplier);
 
 }
 

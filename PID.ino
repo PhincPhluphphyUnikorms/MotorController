@@ -1,3 +1,8 @@
+/******************************************************************************
+ * @DW
+ * This file is named PID because of the arduino build system but i reality acts as a client
+ *
+ ******************************************************************************/
 #include <Arduino.h>
 #include "Motor.h"
 #include "MotorController.h"

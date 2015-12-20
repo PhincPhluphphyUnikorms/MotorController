@@ -8,7 +8,6 @@
 #include "easing.h"
 
 
-
 MotorController _motorController();
 
 
@@ -20,15 +19,18 @@ PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 int targetsize = 5; // the initial value of targetsize
 
-
 //TODO: Ende oscilation med QuinticEase og ExponentialEase, BackEaseIn
 //TODO: Optimer for ElasticEaseOut
 
 
 
-OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _motorController(potiport, motorPin1, motorPin2, motorPVMpin, &_threshold){
+OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _motorController(potiport, motorPin1,
+                                                                                               motorPin2, motorPVMpin,
+                                                                                               &_degreerange,
+                                                                                               &_threshold) {
 
     _threshold = 5;
+    _degreerange = 180;
 
     //PID
     pid.SetMode(AUTOMATIC);
@@ -45,12 +47,11 @@ void OServo::write(float degree) {
 
     _servoPos = degree;
 
+
     _motorController.sendSubTarget(degree);
 
 
 }
-
-
 
 
 void OServo::animateIn(float degree) {
