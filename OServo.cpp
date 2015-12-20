@@ -46,7 +46,6 @@ void OServo::write(float degree) {
     _servoPos = degree;
 
     _motorController.sendSubTarget(degree);
-    wait();
 
 
 }
@@ -62,8 +61,6 @@ void OServo::animateIn(float degree) {
         _servoPos = (180 - 10) * ExponentialEaseIn(_pos / _iterations);
 
         _motorController.sendSubTarget(_servoPos);
-
-        wait();
 
     }
 
@@ -82,26 +79,8 @@ void OServo::animateOut(float degree) {
 
         _motorController.sendSubTarget(Output);
 
-        wait();
-
     }
 
-
-}
-
-void OServo::wait() {
-
-    _ready = false;
-
-    while (abs(_motorController.getError()) > _threshold) {
-
-        _motorController.sendSubTarget(_servoPos);
-
-
-
-    }
-
-    _ready = true;
 
 }
 

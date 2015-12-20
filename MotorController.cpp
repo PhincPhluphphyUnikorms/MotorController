@@ -43,27 +43,44 @@ void MotorController::sendSubTarget(float degree) {
         degree = clipDegree(degree); // Clips the degree
     }
 
+    _subTargetDegree = degree;
 
-    _targetDegree = degree;
-
-
-    update();
-
-
-    _motor.move(_error, *_targetsize);
-
+    moveToNextSubTarget();
 
 }
-
 
 
 void MotorController::update() {
 
     _readDegree = degreeFromPotiReading();
 
-    _error = _targetDegree - _readDegree;
+    _error = _subTargetDegree - _readDegree;
 
 }
+
+void MotorController::moveToNextSubTarget() {
+
+    _ready = false; // We are in the process of a move and is not ready to recieve further instructions
+
+    //TODO: Overvej om den skal skifte tidligere fx ved targetsize + 1
+
+    update();
+
+    while (abs(getError()) > *_targetsize) { // Runs until we reach the target thereby ensuring that the timing is right
+
+        update();
+
+        _motor.move(_error, *_targetsize);
+
+    }
+
+    _ready = true;
+
+}
+
+
+
+
 
 
 float MotorController::clipDegree(float degree) {
@@ -78,7 +95,7 @@ float MotorController::clipDegree(float degree) {
 
 void MotorController::setTargetDegree(int value) {
 
-    _targetDegree = value;
+    _subTargetDegree = value;
 
 }
 

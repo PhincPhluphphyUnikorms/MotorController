@@ -11,7 +11,6 @@
 
 class OServo {
 
-    bool _ready;
     float _threshold;
 
     //Animations
@@ -28,14 +27,8 @@ public:
     void write(float degree);
 
 private:
-    void wait();
     void animateOut(float degree);
     void animateIn(float degree);
-
-public:
-    boolean isReady() const {
-        return _ready;
-    }
 };
 
 

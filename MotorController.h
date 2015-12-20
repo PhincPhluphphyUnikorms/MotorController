@@ -12,12 +12,13 @@ class MotorController {
 
 
     float _readDegree;
-    float _targetDegree;
+    float _subTargetDegree;
     float _error;
     int _potiPort;
     bool _clipping;
     float* _targetsize;
     float _clippingvalue;
+    bool _ready;
 
 
     Motor _motor;
@@ -37,7 +38,6 @@ public:
 
     void sendSubTarget(float degree);
 
-
     int readPoti();
 
 
@@ -45,6 +45,8 @@ private:
 
 
     float clipDegree(float degree);
+    void moveToNextSubTarget();
+
 
 public:
 
@@ -53,7 +55,7 @@ public:
     }
 
     float getTargetDegree() const {
-        return _targetDegree;
+        return _subTargetDegree;
     }
 
     float getError() const {
