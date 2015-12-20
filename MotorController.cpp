@@ -15,20 +15,27 @@
 
 #define realpotirange abs(potirange-potimax) - potimin // The range of degrees that the servo can move
 
-MotorController::MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, int *degreerange,
+MotorController::MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, int * degreerange,
                                  float *initialtargetsize) : _motor(motorpin1, motorpin2, motorpvmpin) {
 
 
+    _degreerange = degreerange; // The range of degrees that the servo can move
     _targetsize = initialtargetsize;
     _potiPort = potiport;
     _clipping = false;
     _clippingvalue = 10;
 
-    _degreerange = degreerange; // The range of degrees that the servo can move
+
+
+}
+
+
+void MotorController::calibrate(){
+
     _multiplier = ((0.00 + *_degreerange) / (0.00 + realpotirange)); // The range of degrees that the servo can move
 
-
     _motor.setSpeed(0); //makes motor choose minimal speec
+
 
 
 }

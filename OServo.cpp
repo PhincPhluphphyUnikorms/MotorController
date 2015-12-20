@@ -38,6 +38,9 @@ OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _m
 
     _iterations = 2000; // Iterationer pr animation
 
+
+    _motorController.calibrate();
+
 }
 
 

@@ -26,7 +26,8 @@ void setup() {
 
 void loop() {
 
-    servo.write(180);
+    servo.write(90);
+
 
 }
 
