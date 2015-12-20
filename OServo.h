@@ -88,6 +88,23 @@ private:
     float calculateOut(float input);
 
     void animate(float degree);
+
+public:
+    const AnimationType &get_animationType() const {
+        return _animationType;
+    }
+
+    void set_animationType(const AnimationType &_animationType) {
+        OServo::_animationType = _animationType;
+    }
+
+    const EaseDirection &get_easeDirection() const {
+        return _easeDirection;
+    }
+
+    void set_easeDirection(const EaseDirection &_easeDirection) {
+        OServo::_easeDirection = _easeDirection;
+    }
 };
 
 
