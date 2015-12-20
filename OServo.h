@@ -1,34 +1,32 @@
 //
-// Created by daniel on 12/14/15.
+// Created by daniel on 12/19/15.
 //
-#include "Motor.h"
-
 
 #ifndef PID_OSERVO_H
 #define PID_OSERVO_H
 
 
+#include <Arduino.h>
+
 class OServo {
+
+    bool ready;
+
 
 public:
     OServo();
-
-    int degreeFromPotiReading();
-    void update();
-    double convertToDegree(int reading);
-    void setTargetDegree(int value);
     void write(float degree);
-    float getPosition();
-    float getError();
-    int getTargetDegree();
-    int readPoti();
+
 
 private:
-    float readDegree;
-    int targetdegree;
-    float error;
+    void wait();
+    void animateOut(float degree);
+    void animateIn(float degree);
 
-    float clipDegree(float degree);
+public:
+    boolean isReady() const {
+        return ready;
+    }
 };
 
 

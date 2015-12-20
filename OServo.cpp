@@ -1,135 +1,105 @@
 //
-// Created by daniel on 12/14/15.
+// Created by daniel on 12/19/15.
 //
 
 #include "OServo.h"
-#include "Motor.h"
-#include "Arduino.h"
-
-//TODO: Rewrite so constants is takjen by constructor
-
-#define degreerange 170 // The range of degrees that the servo can move
-#define potirange 1024 // The range of the readings from the poti
-
-#define potimin 15 // The minimal reading that we can get from the poti
-#define maxreading 1023 // The maximal reading that we can get from the poti
-#define potimax potirange - maxreading // The values that the poti will never enter
+#include "MotorController.h"
+#include <PID_v1/PID_v1.h>
+#include "easing.h"
 
 
-#define realpotirange abs(potirange-potimax) - potimin // The range of degrees that the servo can move
-
-#define multiplier ((0.00 + degreerange) / (0.00 + realpotirange)) // The range of degrees that the servo can move
-
-
-#define clippingvalue 10
-#define targetsize 1
+//Animations
+float servoPos, pos;
+float iterations = 1000; // Iterationer pr animation
 
 
-float readdegree;
-int targetdegree;
-float error;
+MotorController motorController(0, 3, 4, 9);
 
 
-int potiPort = 0;
+//Specify the links and initial tuning parameters for the PID
+double Setpoint, Input, Output;
+double Kp = 0.49, Ki = 0.01, Kd = 0;
+PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 
-//Makes motor with correct pins
-Motor motor(3, 4, 9);
 
-bool clipping = true;
+
+//TODO: Ende oscilation med QuinticEase og ExponentialEase, BackEaseIn
+//TODO: Optimer for ElasticEaseOut
+
+
 
 OServo::OServo() {
 
-    //TODO: Should take port as a parameter
-    motor.setSpeed(255);
+    pid.SetMode(AUTOMATIC);
+    pid.SetOutputLimits(0, 180); // Bør justeres sammen med SetDegrees retur
 
 }
 
-void OServo::update() {
-
-    readDegree = degreeFromPotiReading();
-
-    error = targetdegree - readDegree;
-
-}
 
 void OServo::write(float degree) {
 
-    degree = clipDegree(degree); // Clips the degree
+    boolean pidOn = true;
 
+    servoPos = degree;
 
-    targetdegree = degree;
-
-    update();
-
-
-    motor.move(error, targetsize);
+    motorController.sendSubTarget(degree);
+    wait();
 
 
 }
 
-float OServo::clipDegree(float degree) {
 
-    if(!clipping) return degree; // If clipping are off do nothing
 
-    if(degree < clippingvalue) degree = clippingvalue;
 
-    if(degree >= degreerange - clippingvalue) degree = degreerange - clippingvalue;
+void OServo::animateIn(float degree) {
 
-    return degree;
 
-}
+    for (pos = iterations; pos >= 0; pos--) {
 
-void OServo::setTargetDegree(int value) {
+        servoPos = (180 - 10) * ExponentialEaseIn(pos / iterations);
 
-    targetdegree = value;
+        motorController.sendSubTarget(servoPos);
 
-}
+        wait();
 
-int OServo::degreeFromPotiReading() {
-
-    int value = readPoti();
-
-    value -= potimin;
-
-    return convertToDegree(value);
+    }
 
 
 }
 
-int OServo::readPoti(){
+void OServo::animateOut(float degree) {
 
-    return analogRead(potiPort);
+    for (pos = 0; pos <= iterations; pos++) {
+
+        servoPos = (180 - 10) * ExponentialEaseOut(pos / iterations);
+
+        Input = servoPos;
+
+        pid.Compute();
+
+        motorController.sendSubTarget(Output);
+
+        wait();
+
+    }
+
 
 }
 
-double OServo::convertToDegree(int reading) {
+void OServo::wait() {
 
-    //return (reading * multiplier) - (degreerange / 2);
+    ready = false;
 
-    return (reading * multiplier);
+    while (abs(motorController.getError()) > 5) {
 
-}
+        motorController.sendSubTarget(servoPos);
 
-float OServo::getError() {
 
-    return error;
-}
 
-float OServo::getPosition() {
+    }
 
-    return readDegree;
+    ready = true;
 
 }
-
-int OServo::getTargetDegree() {
-
-
-    return targetdegree;
-
-}
-
-
-
-
 

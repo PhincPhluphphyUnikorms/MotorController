@@ -50,7 +50,7 @@ void Motor::stop() {
 void Motor::move(float degrees, float threshold) {
 
 
-    if(degrees <= threshold && -threshold <= degrees) {
+    if(abs(degrees) <= threshold) { //if error is smaller than threshold we stop
 
         stop();
 

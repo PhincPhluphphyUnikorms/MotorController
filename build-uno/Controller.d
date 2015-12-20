@@ -9,5 +9,5 @@ build-uno/Controller.o: Controller.ino \
  /usr/share/arduino/hardware/arduino/cores/arduino/Printable.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/new.h \
  /usr/share/arduino/hardware/arduino/variants/standard/pins_arduino.h \
- Motor.h OServo.h /home/daniel/sketchbook/libraries/PID_v1/PID_v1.h \
- easing.h
+ Motor.h MotorController.h \
+ /home/daniel/sketchbook/libraries/PID_v1/PID_v1.h easing.h OServo.h

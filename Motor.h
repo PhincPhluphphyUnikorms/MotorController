@@ -8,18 +8,23 @@
 
 class Motor {
 
-public:
-    Motor(int pin1, int pin2, int enablepin);
-    void stop();
-    void clockwise();
-    void counterClockwise();
-    void move(float degrees, float threshold);
-    void setSpeed(int speed);
-
-private:
     int _motor1Pin1;
     int _motor1Pin2;
     int _enablePin;
+
+public:
+    Motor(int pin1, int pin2, int enablepin);
+
+    void stop();
+
+    void move(float degrees, float threshold);
+
+    void setSpeed(int speed);
+
+private:
+    void clockwise();
+
+    void counterClockwise();
 
 };
 
