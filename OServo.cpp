@@ -8,12 +8,8 @@
 #include "easing.h"
 
 
-//Animations
-float servoPos, pos;
-float iterations = 1000; // Iterationer pr animation
 
-
-MotorController motorController(0, 3, 4, 9);
+MotorController _motorController();
 
 
 //Specify the links and initial tuning parameters for the PID
@@ -22,6 +18,7 @@ double Kp = 0.49, Ki = 0.01, Kd = 0;
 PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 
+int targetsize = 5; // the initial value of targetsize
 
 
 //TODO: Ende oscilation med QuinticEase og ExponentialEase, BackEaseIn
@@ -29,10 +26,15 @@ PID pid(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 
 
-OServo::OServo() {
+OServo::OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin) : _motorController(potiport, motorPin1, motorPin2, motorPVMpin, &_threshold){
 
+    _threshold = 5;
+
+    //PID
     pid.SetMode(AUTOMATIC);
     pid.SetOutputLimits(0, 180); // Bør justeres sammen med SetDegrees retur
+
+    _iterations = 2000; // Iterationer pr animation
 
 }
 
@@ -41,9 +43,9 @@ void OServo::write(float degree) {
 
     boolean pidOn = true;
 
-    servoPos = degree;
+    _servoPos = degree;
 
-    motorController.sendSubTarget(degree);
+    _motorController.sendSubTarget(degree);
     wait();
 
 
@@ -55,11 +57,11 @@ void OServo::write(float degree) {
 void OServo::animateIn(float degree) {
 
 
-    for (pos = iterations; pos >= 0; pos--) {
+    for (_pos = _iterations; _pos >= 0; _pos--) {
 
-        servoPos = (180 - 10) * ExponentialEaseIn(pos / iterations);
+        _servoPos = (180 - 10) * ExponentialEaseIn(_pos / _iterations);
 
-        motorController.sendSubTarget(servoPos);
+        _motorController.sendSubTarget(_servoPos);
 
         wait();
 
@@ -70,15 +72,15 @@ void OServo::animateIn(float degree) {
 
 void OServo::animateOut(float degree) {
 
-    for (pos = 0; pos <= iterations; pos++) {
+    for (_pos = 0; _pos <= _iterations; _pos++) {
 
-        servoPos = (180 - 10) * ExponentialEaseOut(pos / iterations);
+        _servoPos = (180 - 10) * ExponentialEaseOut(_pos / _iterations);
 
-        Input = servoPos;
+        Input = _servoPos;
 
         pid.Compute();
 
-        motorController.sendSubTarget(Output);
+        _motorController.sendSubTarget(Output);
 
         wait();
 
@@ -89,17 +91,17 @@ void OServo::animateOut(float degree) {
 
 void OServo::wait() {
 
-    ready = false;
+    _ready = false;
 
-    while (abs(motorController.getError()) > 5) {
+    while (abs(_motorController.getError()) > _threshold) {
 
-        motorController.sendSubTarget(servoPos);
+        _motorController.sendSubTarget(_servoPos);
 
 
 
     }
 
-    ready = true;
+    _ready = true;
 
 }
 

@@ -7,16 +7,25 @@
 
 
 #include <Arduino.h>
+#include "MotorController.h"
 
 class OServo {
 
-    bool ready;
+    bool _ready;
+    float _threshold;
+
+    //Animations
+    float _servoPos, _pos;
+    float _iterations;
+
+    MotorController _motorController;
+
+
 
 
 public:
-    OServo();
+    OServo(int potiport, int motorPin1, int motorPin2, int motorPVMpin);
     void write(float degree);
-
 
 private:
     void wait();
@@ -25,7 +34,7 @@ private:
 
 public:
     boolean isReady() const {
-        return ready;
+        return _ready;
     }
 };
 

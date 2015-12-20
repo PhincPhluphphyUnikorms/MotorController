@@ -11,19 +11,21 @@
 class MotorController {
 
 
+    float _readDegree;
+    float _targetDegree;
+    float _error;
+    int _potiPort;
+    bool _clipping;
+    float* _targetsize;
+    float _clippingvalue;
 
-    float readDegree;
-    float targetDegree;
-    float error;
-    int potiPort;
-    bool clipping;
 
-    Motor motor;
+    Motor _motor;
 
 
 public:
 
-    MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin);
+    MotorController(int potiport, int motorpin1, int motorpin2, int motorpvmpin, float *initialtargetsize);
 
     int degreeFromPotiReading();
 
@@ -35,6 +37,7 @@ public:
 
     void sendSubTarget(float degree);
 
+
     int readPoti();
 
 
@@ -43,23 +46,32 @@ private:
 
     float clipDegree(float degree);
 
-
 public:
+
     void setClipping(bool clipping) {
-        MotorController::clipping = clipping;
+        MotorController::_clipping = clipping;
     }
 
     float getTargetDegree() const {
-        return targetDegree;
+        return _targetDegree;
     }
 
     float getError() const {
-        return error;
+        return _error;
     }
 
     float getReadDegree() const {
-        return readDegree;
+        return _readDegree;
     }
+
+    float getclippingvalue() const {
+        return _clippingvalue;
+    }
+
+    void setclippingvalue(float _clippingvalue) {
+        MotorController::_clippingvalue = _clippingvalue;
+    }
+
 };
 
 

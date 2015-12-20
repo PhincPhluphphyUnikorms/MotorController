@@ -5,7 +5,13 @@
 #include "easing.h"
 #include "OServo.h"
 
-OServo servo;
+
+int potiport = 0;
+int motorPin1 = 3;
+int motorPin2 = 4;
+int motorPVMpin = 9;
+
+OServo servo(potiport, motorPin1, motorPin2, motorPVMpin);
 
 void setup() {
 
@@ -15,7 +21,7 @@ void setup() {
 
 void loop() {
 
-    servo.write(130);
+    servo.write(180);
 
 }
 

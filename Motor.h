@@ -26,6 +26,7 @@ private:
 
     void counterClockwise();
 
+    bool tuning;
 };
 
 

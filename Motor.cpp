@@ -5,7 +5,7 @@
 #include "Motor.h"
 #include "Arduino.h"
 
-#define motorlimit 170 //The smallest pwm signal it takes to make the motor move
+#define motorlimit 117 //The smallest pwm signal it takes to make the motor move
 
 
 int _motor1Pin1;
@@ -19,6 +19,15 @@ Motor::Motor(int pin1, int pin2, int enablepin) {
     _motor1Pin2 = pin2;
     //analogWrite(enablepin, motorlimit);
     _enablePin = enablepin;
+
+
+    pinMode(_motor1Pin1, OUTPUT);
+    pinMode(_motor1Pin2, OUTPUT);
+    pinMode(_enablePin, OUTPUT);
+
+    tuning = false; // Set to true of motor is runnign in tunign program
+
+    setSpeed(motorlimit);
 
 
 
@@ -70,9 +79,12 @@ void Motor::move(float degrees, float threshold) {
 
 void Motor::setSpeed(int speed) {
 
-    if(speed > 255) speed = 255;
-    else if(speed < motorlimit) speed = motorlimit;
+    if(!tuning) {
+        if (speed > 255) speed = 255;
+        else if (speed < motorlimit) speed = motorlimit;
 
-    digitalWrite(_enablePin, speed);
+    }
+
+    analogWrite(_enablePin, speed);
 
 }
